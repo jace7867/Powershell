@@ -1,0 +1,134 @@
+/* estilo.css
+	 Hoja de estilos base: colores, tipografía, layout y componentes básicos.
+	 Ubicación: c:\script\powershell\estilo.css
+*/
+
+:root {
+	--bg: #0f1724; /* fondo oscuro */
+	--card: #0b1220;
+	--muted: #9aa4b2;
+	--text: #e6eef6;
+	--accent: #06b6d4; /* cyan */
+	--accent-2: #8b5cf6; /* purple */
+	--radius: 8px;
+	--max-width: 980px;
+	--ui-gap: 16px;
+	--mono: 'Consolas', 'Courier New', monospace;
+	--ui-font: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Reset ligero */
+* { box-sizing: border-box; }
+html,body { height:100%; }
+body {
+	margin: 0;
+	font-family: var(--ui-font);
+	background: linear-gradient(180deg, var(--bg), #071026 120%);
+	color: var(--text);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	line-height: 1.45;
+	padding: 24px;
+}
+
+.container {
+	max-width: var(--max-width);
+	margin: 0 auto;
+	padding: 20px;
+}
+
+.card {
+	background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.06));
+	border-radius: var(--radius);
+	padding: 18px;
+	box-shadow: 0 6px 20px rgba(2,6,23,0.6);
+	border: 1px solid rgba(255,255,255,0.03);
+}
+
+h1,h2,h3 { margin: 0 0 12px 0; font-weight: 600; }
+h1 { font-size: 1.6rem; }
+h2 { font-size: 1.25rem; }
+
+p { margin: 0 0 12px 0; color: var(--muted); }
+
+/* Utilities */
+.muted { color: var(--muted); }
+.center { text-align:center; }
+.mb { margin-bottom: var(--ui-gap); }
+
+/* Buttons */
+.btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	padding: 8px 14px;
+	background: linear-gradient(90deg, var(--accent), var(--accent-2));
+	color: white;
+	border: none;
+	border-radius: 999px;
+	cursor: pointer;
+	font-weight: 600;
+	text-decoration: none;
+	box-shadow: 0 6px 18px rgba(11, 78, 100, 0.12), inset 0 -2px 0 rgba(0,0,0,0.12);
+}
+.btn.secondary {
+	background: transparent;
+	color: var(--text);
+	border: 1px solid rgba(255,255,255,0.06);
+	box-shadow: none;
+}
+
+/* Forms */
+input[type="text"], input[type="email"], textarea, select {
+	width: 100%;
+	padding: 10px 12px;
+	background: rgba(255,255,255,0.02);
+	border: 1px solid rgba(255,255,255,0.04);
+	color: var(--text);
+	border-radius: 6px;
+	outline: none;
+}
+input:focus, textarea:focus, select:focus {
+	border-color: rgba(6,182,212,0.9);
+	box-shadow: 0 6px 18px rgba(6,182,212,0.08);
+}
+
+/* Code blocks */
+pre, code {
+	font-family: var(--mono);
+	font-size: 0.9rem;
+}
+pre {
+	background: #071826;
+	border-radius: 6px;
+	padding: 12px;
+	overflow: auto;
+	color: #cfeef6;
+	border: 1px solid rgba(255,255,255,0.03);
+}
+
+.k-v { color: #7ee787; } /* keyword/var */
+.k-fn { color: #ffd580; } /* function */
+.k-str { color: #ffa3a3; } /* string */
+
+/* Responsive layout */
+.grid {
+	display: grid;
+	grid-template-columns: 1fr 320px;
+	gap: 20px;
+}
+@media (max-width: 880px) {
+	.grid { grid-template-columns: 1fr; }
+	body { padding: 16px; }
+}
+
+/* Small helpers for PowerShell output styling */
+.ps-output { background: rgba(255,255,255,0.01); padding:10px; border-radius:6px; color:var(--text); font-family:var(--mono); }
+
+/* Link styles */
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: var(--accent-2); text-decoration: underline; }
+
+/* Footer */
+.footer { margin-top: 30px; color: var(--muted); font-size: 0.9rem; }
+
